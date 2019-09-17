@@ -1,0 +1,74 @@
+/* Zuordnung */
+#one{
+    grid-area: one;
+}
+#two{
+    grid-area: two;
+}
+#three{
+    grid-area: three;
+}
+#four{
+    grid-area: four;
+}
+#five{
+    grid-area: five;
+}
+#six{
+    grid-area: six;
+}
+#seven{
+    grid-area: seven;
+}
+#eight{
+    grid-area: eight;
+}
+#nine{
+    grid-area: nine;
+}
+#null{
+    grid-area: null;
+}
+
+#plus{
+    grid-area: plus;
+}
+
+#minus{
+    grid-area: minus;
+}
+#multi{
+    grid-area: multiplication;
+}
+#obelus{
+    grid-area: obelus;
+}
+#equal{
+    grid-area: equal;
+}
+#equal{
+    grid-area: clear;
+}
+/* layout calculator */
+#container {
+    display: grid;
+    grid:
+    "one two three plus"    40px
+    "four five six minus"   40px
+    "seven eight nine multi" 40px
+    "null obelus equal clear"    40px
+    /40px    40px     40px    40px;
+    height: 100vh;
+    grid-gap: 1em;
+}
+/* Output Field */
+#output{
+    border-style: solid;
+    border-width: 1px; 
+    padding: 39px;
+    margin-right: 85vw;
+    margin-bottom: 10px;
+    /* wird die Box-Sizing Eigenschaft runtervererbt? */
+    box-sizing: border-box;
+    background-color: white;
+}
