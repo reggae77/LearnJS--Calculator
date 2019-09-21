@@ -1,46 +1,67 @@
+/*Init */
+var preDisplayVariable = "0";
 var displayVariable = "10";
+var operator = "plus";
+var result = "";
+
 /*Event Listeners Numbers */
 
 document.addEventListener('click', function(e){
     if(e.target.id=="one"){
-        displayVariable = 1;
+        setDisplayVariable(1);
+        setDisplayVariableHTML();
     }
     if(e.target.id=="two"){
-        displayVariable = 2;
+        setDisplayVariable(2);   
+        setDisplayVariableHTML();
     }
     if(e.target.id=="three"){
-        displayVariable = 3;
-      
+        setDisplayVariable(3);      
+        setDisplayVariableHTML();
     }
     if(e.target.id=="four"){
-        displayVariable = 4;
-       
+        setDisplayVariable(4);       
+        setDisplayVariableHTML();
     }
     if(e.target.id=="five"){
-        displayVariable = 5;
-       
+        setDisplayVariable(5);      
+        setDisplayVariableHTML(); 
     }
     if(e.target.id=="six"){
-        displayVariable = 6;
-       
+        setDisplayVariable(6);   
+        setDisplayVariableHTML();    
     }
     if(e.target.id=="seven"){
-        displayVariable = 7;
-       
+        setDisplayVariable(7); 
+        setDisplayVariableHTML();    
     }
     if(e.target.id=="eight"){
-        displayVariable = 8;
-       
+        setDisplayVariable(8);  
+        setDisplayVariableHTML();     
     }
     if(e.target.id=="nine"){
-        displayVariable = 9;
-       
+        setDisplayVariable(9); 
+        setDisplayVariableHTML();      
     }
     if(e.target.id=="null"){
-        displayVariable = 0;
-       
+        setDisplayVariable(0);  
+        setDisplayVariableHTML();     
     }
-    setDisplayVariable();
+    if(e.target.id=="plus"){
+        setOperator(plus);
+    }
+    if(e.target.id=="minus"){
+        setOperator(minus);
+    }
+    if(e.target.id=="multiplication"){
+        setOperator(multiplication);
+    }
+    if(e.target.id=="obelus"){
+        setOperator(obelus);
+    }
+    if(e.target.id=="equal"){
+        result = operate();
+    }
 })
 /*Math functions */
 function add(a,b){
@@ -59,15 +80,30 @@ function divide(a,b){
     return Math.divide(a,b);
 }
 
-function operate(operator,a,b){
-    if(operator ="plus") return add(a,b);
-    if(operator ="minus") return subtract(a,b);
-    if(operator ="multiplication") return multiply(a,b);
-    if(operator ="obelus") return divide(a,b);
+function operate(){
+    if(operator ="plus") return add(preDisplayVariable,displayVariable);
+    if(operator ="minus") return subtract(preDisplayVariable,displayVariable);
+    if(operator ="multiplication") return multiply(preDisplayVariable,displayVariable);
+    if(operator ="obelus") return divide(preDisplayVariable,displayVariable);
 }
 
-function setDisplayVariable(){
-    document.getElementById("output").innerHTML = displayVariable;
+function setDisplayVariableHTML(){
+    document.getElementById("output").innerHTML = preDisplayVariable + operator + displayVariable + result;
 }
 
+function setDisplayVariable(a){
+    preDisplayVariable = displayVariable;
+    displayVariable = a;
+}
+function setOperator(operator){
+    operator = operator;
+}
+/* 
+1. Userinput wegspeichern
+2. zweiter Userinput eingeben überschreibt vorherige Variable
+    und Wert davon wird in eine pre Variable weggespeichert
 
+1. Userinput
+2. Operator
+3. Userinput
+*/
